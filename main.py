@@ -135,6 +135,12 @@ app.title("Folha de Ponto Automática")
 app.geometry("680x380")
 app.resizable(False, False)
 
+# Ícone do app (Windows)
+try:
+    app.iconbitmap("assets/icon.ico")
+except Exception:
+    pass
+
 container = tb.Frame(app)
 container.place(relx=0.5, rely=0.5, anchor="center")
 
@@ -172,7 +178,7 @@ combo_mes.current(0)
 tb.Label(card, text="Salvar em", font=("Segoe UI", 11, "bold")).grid(row=3, column=0, sticky=W, pady=(0, 10))
 
 pasta_var = tb.StringVar(value="")
-entry_pasta = tb.Entry(card, textvariable=pasta_var, width=32)
+entry_pasta = tb.Entry(card, textvariable=pasta_var, width=32, state="readonly")
 entry_pasta.grid(row=3, column=1, sticky=W, pady=(0, 10))
 
 btn_pasta = tb.Button(card, text="Escolher…", command=escolher_pasta, bootstyle="secondary-outline", width=12)
